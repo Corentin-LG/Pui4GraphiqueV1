@@ -1,8 +1,11 @@
-
+/*
+ *18/11/2020
+ *Corentin LE GOFF && Marc-Andréas DEHAIS
+ */
 package superpuissance4_modegraphique;
 
 /**
- *
+ * modifié par @author cocol
  * @author bdarties
  */
 public class Cellule {
