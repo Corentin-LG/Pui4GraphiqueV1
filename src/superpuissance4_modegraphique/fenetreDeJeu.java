@@ -33,6 +33,24 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         for (int i = 5; i >= 0; i--) {
             for (int j = 0; j < 7; j++) {
                 CelluleGraphique cellGraph = new CelluleGraphique(grilleDeJeu.Cellules[i][j]);
+
+                cellGraph.addActionListener(new java.awt.event.ActionListener() {
+                    public void actionPerformed(java.awt.event.ActionEvent evt) {
+                        Cellule c = cellGraph.celluleAssociee;
+                        if (c.jetonCourant == null) {
+                            return;
+                        }
+                        if (c.jetonCourant.Couleur.equals(JoueurCourant.Couleur)) {
+                            textemessage.setText("le joueur" + JoueurCourant.Nom + "récupère un de ses jetons");
+                            return;
+                        }
+                        else {
+                            textemessage.setText("le joueur" + JoueurCourant.Nom + "veut désintégrer un jeton");                            
+                        }
+                        textemessage.setText("un bouton a été cliqué");
+                    }
+                });//part6 6min pas message affiché
+
                 panneau_grille.add(cellGraph);
             }
         }
@@ -317,21 +335,28 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         boolean resultatAction;
         resultatAction = grilleDeJeu.ajouterJetonDansColonne(JoueurCourant, indice_colonne);
         panneau_grille.repaint();
-        
-        lbl_j1_nbdesint.setText(Listejoueurs[0].nombreDesintegrateurs+"");
-        lbl_j2_nbdesint.setText(Listejoueurs[1].nombreDesintegrateurs+"");
-        
+
+        lbl_j1_nbdesint.setText(Listejoueurs[0].nombreDesintegrateurs + "");
+        lbl_j2_nbdesint.setText(Listejoueurs[1].nombreDesintegrateurs + "");
+
         boolean vict_j1 = grilleDeJeu.etreGagnantePourJoueur(Listejoueurs[0]);
         boolean vict_j2 = grilleDeJeu.etreGagnantePourJoueur(Listejoueurs[1]);
-        
-        if (vict_j1 && !vict_j2) textemessage.setText("Victoire de "+Listejoueurs[0].Nom);
-        if (vict_j2 && !vict_j1) textemessage.setText("Victoire de "+Listejoueurs[1].Nom);
-        
-        if (vict_j1 && vict_j2) {
-            if (JoueurCourant == Listejoueurs[0]) textemessage.setText("Victoire de "+Listejoueurs[1].Nom + " par faute de l'autre joueur");
-            else textemessage.setText("Victoire de "+Listejoueurs[0].Nom + " par faute de l'autre joueur");
+
+        if (vict_j1 && !vict_j2) {
+            textemessage.setText("Victoire de " + Listejoueurs[0].Nom);
         }
-        
+        if (vict_j2 && !vict_j1) {
+            textemessage.setText("Victoire de " + Listejoueurs[1].Nom);
+        }
+
+        if (vict_j1 && vict_j2) {
+            if (JoueurCourant == Listejoueurs[0]) {
+                textemessage.setText("Victoire de " + Listejoueurs[1].Nom + " par faute de l'autre joueur");
+            } else {
+                textemessage.setText("Victoire de " + Listejoueurs[0].Nom + " par faute de l'autre joueur");
+            }
+        }
+
         if (resultatAction == true) {
             return true;
         } else {
@@ -342,8 +367,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
     public void joueurSuivant() {
         if (JoueurCourant == Listejoueurs[0]) {
             JoueurCourant = Listejoueurs[1];
-        } else 
-        {
+        } else {
             JoueurCourant = Listejoueurs[0];
         }//pas de crochets !!
         lbl_jcourant.setText(JoueurCourant.Nom);
