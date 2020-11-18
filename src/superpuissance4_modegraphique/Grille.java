@@ -216,18 +216,8 @@ public class Grille {
         }
     }
     
-    
-    /*void tasserColonne(int colonne) {
-        for (int i = 0; i < 5; i++) { //tjrs pblm
-            if (Cellules[i][colonne].jetonCourant  == null) {
-                Cellules[i][colonne].jetonCourant = Cellules[i + 1][colonne].jetonCourant;
-                Cellules[i + 1][colonne].jetonCourant=null;
-            }
-        }
-    }*/
-    
     void tasserColonne(int colonne) {
-        for (int i = 0; i < 5; i++) { //tjrs pblm
+        for (int i = 0; i < 5; i++) {
             if (Cellules[i][colonne].jetonCourant  == null) {
                 Cellules[i][colonne].jetonCourant = Cellules[i + 1][colonne].jetonCourant;
                 Cellules[i + 1][colonne].jetonCourant=null;

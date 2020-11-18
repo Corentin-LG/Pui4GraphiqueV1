@@ -42,6 +42,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
                         if (c.jetonCourant.Couleur.equals(JoueurCourant.Couleur)) {
                             textemessage.setText("le joueur " + JoueurCourant.Nom + " récupère un de ses jetons");
                             Jeton j_recup = c.recupererJeton();
+                            //il faut regarder dans chacunes des colonnes 
                             JoueurCourant.ajouterJeton(j_recup);
                             joueurSuivant();
                         } else {
