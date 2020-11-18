@@ -32,7 +32,7 @@ public class Grille {
     // methode ajoutée par rapport à l'énoncé
     // retourne vrai si la colonne d'indice ind_colonne estremplie
     // retourne faux sinon
-        return (Cellules[5][ind_colonne].recupererJeton() != null);
+        return (Cellules[5][ind_colonne].jetonCourant != null);
     }
 
         

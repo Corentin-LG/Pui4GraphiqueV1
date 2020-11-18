@@ -318,7 +318,6 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         resultatAction = grilleDeJeu.ajouterJetonDansColonne(JoueurCourant, indice_colonne);
         panneau_grille.repaint();
         
-        //part5 10*38 voir tasser grille
         lbl_j1_nbdesint.setText(Listejoueurs[0].nombreDesintegrateurs+"");
         lbl_j2_nbdesint.setText(Listejoueurs[1].nombreDesintegrateurs+"");
         
@@ -329,8 +328,8 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         if (vict_j2 && !vict_j1) textemessage.setText("Victoire de "+Listejoueurs[1].Nom);
         
         if (vict_j1 && vict_j2) {
-            if (JoueurCourant == Listejoueurs[0]) textemessage.setText("Victoire de "+Listejoueurs[1].Nom);
-            else textemessage.setText("Victoire de "+Listejoueurs[0].Nom);
+            if (JoueurCourant == Listejoueurs[0]) textemessage.setText("Victoire de "+Listejoueurs[1].Nom + " par faute de l'autre joueur");
+            else textemessage.setText("Victoire de "+Listejoueurs[0].Nom + " par faute de l'autre joueur");
         }
         
         if (resultatAction == true) {
