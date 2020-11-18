@@ -41,21 +41,19 @@ public class fenetreDeJeu extends javax.swing.JFrame {
                             return;
                         }
                         if (c.jetonCourant.Couleur.equals(JoueurCourant.Couleur)) {
-                            textemessage.setText("le joueur" + JoueurCourant.Nom + "récupère un de ses jetons");
+                            textemessage.setText("le joueur " + JoueurCourant.Nom + " récupère un de ses jetons");
                             return;
                         }
                         else {
-                            textemessage.setText("le joueur" + JoueurCourant.Nom + "veut désintégrer un jeton");                            
+                            textemessage.setText("le joueur " + JoueurCourant.Nom + " veut désintégrer un jeton");                            
                         }
-                        textemessage.setText("un bouton a été cliqué");
+                       // textemessage.setText("un bouton a été cliqué"); //part6 10min comme un décalage des messages
                     }
                 });//part6 6min pas message affiché
 
                 panneau_grille.add(cellGraph);
             }
         }
-
-        //une_partie.debuterPartie();
     }
 
     /**
